@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
+import os from 'os';
 import { 
   INITIAL_DOMAINS, 
   INITIAL_MODULES, 
@@ -130,12 +131,20 @@ interface DatabaseSchema {
   settings: PlatformSettings;
 }
 
-const DATA_DIR = path.resolve(process.cwd(), 'server', 'db', 'data');
+const IS_VERCEL = !!process.env.VERCEL;
+const DATA_DIR = IS_VERCEL
+  ? os.tmpdir()
+  : path.resolve(process.cwd(), 'server', 'db', 'data');
 const DB_FILE = path.join(DATA_DIR, 'database.json');
+const BUNDLED_DB_FILE = path.resolve(process.cwd(), 'server', 'db', 'data', 'database.json');
 
 // Ensure data folder exists
 if (!fs.existsSync(DATA_DIR)) {
-  fs.mkdirSync(DATA_DIR, { recursive: true });
+  try {
+    fs.mkdirSync(DATA_DIR, { recursive: true });
+  } catch (err) {
+    console.warn('Could not create DATA_DIR:', err);
+  }
 }
 
 // Password hashing helpers
@@ -163,7 +172,19 @@ class DatabaseService {
         const raw = fs.readFileSync(DB_FILE, 'utf-8');
         return JSON.parse(raw);
       } catch (err) {
-        console.error('Error loading DB file, rebuilding from seed:', err);
+        console.error('Error loading DB file from DB_FILE:', err);
+      }
+    }
+    if (fs.existsSync(BUNDLED_DB_FILE)) {
+      try {
+        const raw = fs.readFileSync(BUNDLED_DB_FILE, 'utf-8');
+        const parsed = JSON.parse(raw);
+        try {
+          fs.writeFileSync(DB_FILE, raw, 'utf-8');
+        } catch {}
+        return parsed;
+      } catch (err) {
+        console.error('Error loading bundled DB file:', err);
       }
     }
     return this.initializeSeed();
@@ -173,7 +194,7 @@ class DatabaseService {
     try {
       fs.writeFileSync(DB_FILE, JSON.stringify(this.db, null, 2), 'utf-8');
     } catch (err) {
-      console.error('Error writing database to disk:', err);
+      console.warn('Warning: Could not persist database to disk (in-memory state preserved):', (err as Error).message);
     }
   }
 
@@ -294,7 +315,11 @@ class DatabaseService {
       }
     };
 
-    fs.writeFileSync(DB_FILE, JSON.stringify(initialSchema, null, 2), 'utf-8');
+    try {
+      fs.writeFileSync(DB_FILE, JSON.stringify(initialSchema, null, 2), 'utf-8');
+    } catch (err) {
+      console.warn('Warning: Could not write seed to disk:', (err as Error).message);
+    }
     return initialSchema;
   }
 

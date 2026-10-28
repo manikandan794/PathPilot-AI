@@ -9,7 +9,7 @@
       "role": "admin",
       "status": "active",
       "created_at": "2026-10-28T06:34:22.097Z",
-      "last_active_at": "2026-10-28T06:48:40.677Z"
+      "last_active_at": "2026-10-28T06:59:30.520Z"
     },
     {
       "id": "usr-student-01",
@@ -711,6 +711,169 @@
       },
       "created_at": "2026-10-28T06:48:40.673Z",
       "updated_at": "2026-10-28T06:48:40.673Z"
+    },
+    {
+      "id": "plan-66553852",
+      "user_id": "usr-admin-01",
+      "provider": "fallback_engine",
+      "journey_type": "transition",
+      "current_industry": "Hardware & Electronics",
+      "current_domain": "Hardware Engineering",
+      "current_title": "Hardware Engineer",
+      "years_experience": 3,
+      "current_skills": [
+        "Circuit Design",
+        "C++",
+        "PCB Layout",
+        "Oscilloscopes",
+        "Firmware Testing"
+      ],
+      "target_industry": "Cloud & Software Systems",
+      "target_domain": "Software Engineering",
+      "target_role": "Full Stack / Systems Software Engineer",
+      "available_hours_week": 12,
+      "learning_pace": "accelerated",
+      "constraints": "Working full-time; evenings and weekends preferred",
+      "transferable_skills": [
+        "Boolean Logic & Digital Architecture",
+        "Debugging & Signal Analysis (Mental model for root-cause analysis)",
+        "Low-level memory awareness (Registers, Buses, C/Assembly basics)",
+        "Hardware-software communication protocols (SPI, I2C, UART)",
+        "Rigorous testing and specification verification"
+      ],
+      "skill_gaps": [
+        "Modern Web Frameworks (React, TypeScript)",
+        "Relational & NoSQL Database Design",
+        "RESTful API & Microservices Architecture",
+        "Git collaborative workflows & CI/CD",
+        "Asynchronous programming & Cloud deployment"
+      ],
+      "career_ladder": [
+        {
+          "stage": "Baseline",
+          "title": "Hardware Engineer",
+          "focus": "Circuit design, board testing, firmware flashing"
+        },
+        {
+          "stage": "Milestone 1",
+          "title": "Firmware / Embedded Developer",
+          "focus": "C++, RTOS, microcontroller interfacing, Git"
+        },
+        {
+          "stage": "Milestone 2",
+          "title": "IoT / Systems Engineer",
+          "focus": "Node.js, MQTT/WebSockets, backend APIs, edge computing"
+        },
+        {
+          "stage": "Target Role",
+          "title": "Full Stack / Systems Software Engineer",
+          "focus": "Cloud integration, React, distributed microservices"
+        }
+      ],
+      "learning_stages": [
+        {
+          "stage_number": 1,
+          "title": "Foundation Translation & Bridge Concepts",
+          "duration_weeks": 3,
+          "topics": [
+            "Translate Hardware Engineer mental models to modern Software Engineering architecture",
+            "Version Control with Git, GitHub Flow, and Pull Request hygiene",
+            "Core programming paradigms and automated unit testing"
+          ],
+          "resources": [
+            "Interactive Sandbox Labs",
+            "PathPilot Foundations Module",
+            "Domain Translation Cheat-Sheet"
+          ]
+        },
+        {
+          "stage_number": 2,
+          "title": "Target Domain Core Engineering",
+          "duration_weeks": 4,
+          "topics": [
+            "Deep Dive: Modern Web Frameworks (React, TypeScript) in production environments",
+            "Deep Dive: Relational & NoSQL Database Design in production environments",
+            "Deep Dive: RESTful API & Microservices Architecture in production environments"
+          ],
+          "resources": [
+            "Production Architecture Patterns",
+            "Official Documentation & RFCs",
+            "Code Review Rubrics"
+          ]
+        },
+        {
+          "stage_number": 3,
+          "title": "Portfolio Project & System Integration",
+          "duration_weeks": 3,
+          "topics": [
+            "End-to-End System Integration incorporating past domain strengths",
+            "CI/CD deployment, Cloud Hosting, and Performance Profiling",
+            "Technical documentation and architecture diagramming"
+          ],
+          "resources": [
+            "GitHub Portfolio Template",
+            "Live Cloud Sandbox",
+            "Lighthouse & CWV Auditing"
+          ]
+        },
+        {
+          "stage_number": 4,
+          "title": "Resume Repositioning & Mock Interview Mastery",
+          "duration_weeks": 2,
+          "topics": [
+            "Repositioning 3 years in Hardware & Electronics into a distinct differentiator",
+            "System design interviews and behavioral STAR format storytelling",
+            "Target company matching and direct recruiter outreach"
+          ],
+          "resources": [
+            "PathPilot AI Mock Interview Suite",
+            "ATS Resume Optimizer",
+            "Compensation Negotiation Playbook"
+          ]
+        }
+      ],
+      "practical_projects": [
+        {
+          "title": "IoT Telemetry Dashboard",
+          "description": "Connect physical microcontrollers (ESP32/Raspberry Pi) via MQTT to a Node.js/PostgreSQL backend with a real-time React dashboard."
+        },
+        {
+          "title": "Firmware Flashing Web Serial Tool",
+          "description": "Browser-based tool utilizing Web Serial API to configure, flash, and monitor embedded devices directly over USB."
+        }
+      ],
+      "recommended_certifications": [
+        "AWS Certified Solutions Architect - Associate",
+        "HashiCorp Certified: Terraform Associate",
+        "CompTIA Security+ / Linux+ Professional"
+      ],
+      "interview_topics": [
+        "Bridging cross-disciplinary engineering logic to software problems",
+        "Handling technical trade-offs between speed, cost, and reliability",
+        "Explaining past domain projects in software/data terms"
+      ],
+      "resume_repositioning_tips": [
+        "Reframe Hardware Engineering experience around computational thinking, data integrity, and root-cause debugging.",
+        "Quantify business outcomes: mention reduced error rates, automated steps, or improved turnaround times.",
+        "Highlight transferable skills (Boolean Logic & Digital Architecture, Debugging & Signal Analysis (Mental model for root-cause analysis), Low-level memory awareness (Registers, Buses, C/Assembly basics)) at the top of your professional summary."
+      ],
+      "market_insights": {
+        "salary_range": "$110,000 - $160,000 (US Benchmark / Estimated)",
+        "sample_companies": [
+          "Siemens",
+          "Tesla",
+          "Palantir",
+          "Datadog",
+          "Stripe",
+          "General Electric"
+        ],
+        "demand_level": "High",
+        "hiring_outlook": "Companies strongly value hybrid engineers who combine physical/operational domain expertise with modern software skills.",
+        "data_source": "PathPilot Industry Benchmarks & Aggregated Tech Salaries",
+        "retrieval_date": "Oct 2026"
+      },
+      "created_at": "2026-10-28T06:51:14.389Z",
+      "updated_at": "2026-10-28T06:51:14.399Z"
     }
   ],
   "audit_logs": [
